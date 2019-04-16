@@ -17,3 +17,12 @@ Change your torrc file to change the external IP every 10 seconds
 https://2019.www.torproject.org/docs/tor-manual-dev.html.en#MaxCircuitDirtiness
 
 
+# requirements
+1.) requests
+```
+pip install requests
+```
+2.) uuid
+```
+pip install uuid
+```
