@@ -18,7 +18,8 @@ https://2019.www.torproject.org/docs/tor-manual-dev.html.en#MaxCircuitDirtiness
 
 
 # Requirements
-1.) requests
+
+Install requirements
 ```
 pip install -r requirements.txt
 ```
