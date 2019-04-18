@@ -204,7 +204,7 @@ def send_thread():
             post_device(udid, account_location, grant_ticket)
             get_number(udid, grant_ticket)
             for i in range(3):
-                send_message(udid, grant_ticket, "+18312878759", userId)
+                send_message(udid, grant_ticket, "+1somenumberhere", userId)
                 print("Another message sent!")
 
 def main():
