@@ -1,4 +1,4 @@
-# text_plus
+# text-plus-poc
 Programmatically creates accounts and sends texts via textplus
 
 
