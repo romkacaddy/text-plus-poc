@@ -1,6 +1,6 @@
 {
     
-    "username_seed" : "wowow",
+    "username_seed" : "someusernameseed",
     "password" : "somepass",
     "proxy" : {
         
@@ -9,6 +9,6 @@
         
     },
     
-    "method" : "phone"
+    "method" : "phone" //or "email" for email
     
 }
