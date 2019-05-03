@@ -26,11 +26,11 @@ pip install -r requirements.txt
 ```
 
 # prefs.json
-username_seed is the seed for usernames, AKA usernames will look like these.....
+"username_seed" is the seed for usernames.
 
-password is the same for all accounts
+"password" is the same for all accounts
 
-proxy contains all proxy information for requests
+"proxy" contains all proxy information for requests, support socks4/5, and HTTP
 
-method can be either "phone" or "email". Phone numbers must have the following match: \+[0-9][0-9]{10}
+"method" can be either "phone" or "email". Phone numbers must have the following match: \+[0-9][0-9]{10}
 
