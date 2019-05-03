@@ -1,5 +1,6 @@
 # text-plus-poc
-Programmatically creates accounts and sends texts via textplus
+Programmatically creates accounts and sends texts via textplus.
+Interested in how this hack was created? Read about it [here](https://ligma.vip/posts/textplus/)
 
 
 # USE TOR!
