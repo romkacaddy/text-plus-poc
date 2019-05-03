@@ -24,3 +24,13 @@ Install requirements
 ```
 pip install -r requirements.txt
 ```
+
+# prefs.json
+username_seed is the seed for usernames, AKA usernames will look like these.....
+
+password is the same for all accounts
+
+proxy contains all proxy information for requests
+
+method can be either "phone" or "email". Phone numbers must have the following match: \+[0-9][0-9]{10}
+
