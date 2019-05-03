@@ -1,0 +1,14 @@
+{
+    
+    "username_seed" : "wowow",
+    "password" : "somepass",
+    "proxy" : {
+        
+        "address": "localhost",
+        "port" : "9050"
+        
+    },
+    
+    "method" : "phone"
+    
+}

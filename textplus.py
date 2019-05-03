@@ -9,8 +9,12 @@ Textplus class
 
 class Textplus():
     
+    prefs_data = json.loads(open("prefs.json").read())
     udid = ""
     username = ""
+    password = prefs_data["password"]
+    proxy = dict(prefs_data["proxy"])
+    method = prefs_data["method"]
     account_location = ""
     userId = ""
     ticket = ""
@@ -45,12 +49,12 @@ class Textplus():
         data = {
         	"message": message,
         	"invites": [{
-        		"phone": "+" + number
+        		self.method : number
         	}]
         }
         #print(json.dumps(data));
         
-        res = requests.post("https://ums.prd.gii.me/rewards/custom_invites/"+self.userId, proxies = {"http" : "socks4://localhost:9050", "https" : "socks4://localhost:9050"}, data=json.dumps(data), headers=headers)
+        res = requests.post("https://ums.prd.gii.me/rewards/custom_invites/"+self.userId, proxies = self.proxy, data=json.dumps(data), headers=headers)
         
         #print(res.content)
     
@@ -80,7 +84,7 @@ class Textplus():
             "user": account_location
         }
         
-        res = requests.post("https://ums.prd.gii.me/v2/devices", proxies = {"http" : "socks4://localhost:9050", "https" : "socks4://localhost:9050"}, data=json.dumps(data), headers=headers)
+        res = requests.post("https://ums.prd.gii.me/v2/devices", proxies = self.proxy, data=json.dumps(data), headers=headers)
         
         #print(res.status_code)
     
@@ -112,7 +116,7 @@ class Textplus():
         }
         
         
-        res = requests.get("https://ums.prd.gii.me/me?projection=inline", proxies = {"http" : "socks4://localhost:9050", "https" : "socks4://localhost:9050"}, headers=headers)
+        res = requests.get("https://ums.prd.gii.me/me?projection=inline", proxies = self.proxy, headers=headers)
         
         return json.loads(res.content)
     
@@ -137,7 +141,7 @@ class Textplus():
             "platform": "google",
             "pushToken": "ezCUG_8kIYs:APA91bE_VxGm1lz2Ev2nKcxx13AAI7ZkaptVdP3Q5i91ipfxrLVJlKkcPiVU8GRg48g0E_yzKYP77cN3DhxIiFN7sIDDdWxmjIuWaEW2csEBHfLPr1G5gxqhlgr0wFu6o8MJakeCV6ru"
         }
-        res = requests.post("https://ums.prd.gii.me/personas/"+url_location+"/tptn/allocate", proxies = {"http" : "socks4://localhost:9050", "https" : "socks4://localhost:9050"}, data=json.dumps(data), headers=headers)
+        res = requests.post("https://ums.prd.gii.me/personas/"+url_location+"/tptn/allocate", proxies = self.proxy, data=json.dumps(data), headers=headers)
         #print(res.content)
     
     
@@ -156,7 +160,7 @@ class Textplus():
             "ticketGrantingTicket" : ticket
             
         }
-        res = requests.post("https://cas.prd.gii.me/v2/ticket/service", proxies = {"http" : "socks4://localhost:9050", "https" : "socks4://localhost:9050"}, data=json.dumps(data), headers=headers)
+        res = requests.post("https://cas.prd.gii.me/v2/ticket/service", proxies = self.proxy, data=json.dumps(data), headers=headers)
         
         return json.loads(res.content)["ticket"]
     
@@ -177,7 +181,7 @@ class Textplus():
             "username" : username
             
         }
-        res = requests.post("https://cas.prd.gii.me/v2/ticket/ticketgranting/user", proxies = {"http" : "socks4://localhost:9050", "https" : "socks4://localhost:9050"}, data=json.dumps(data), headers=headers)
+        res = requests.post("https://cas.prd.gii.me/v2/ticket/ticketgranting/user", proxies = self.proxy, data=json.dumps(data), headers=headers)
     
         return json.loads(res.content)["ticket"]
     
@@ -197,10 +201,10 @@ class Textplus():
             "locale": "en_US",
             "network": "nextplus",
             "optin": 1,
-            "password": "somepass",
+            "password": self.prefs_data["password"],
             "tos": 1,
-            "username": str(uuid.uuid1())
+            "username": self.prefs_data["username_seed"]
         }
         
-        self.res = requests.post("https://ums.prd.gii.me/registration/mobile", proxies = {"http" : "socks4://localhost:9050", "https" : "socks4://localhost:9050"}, data=json.dumps(data), headers=headers)
+        self.res = requests.post("https://ums.prd.gii.me/registration/mobile", proxies = self.proxy, data=json.dumps(data), headers=headers)
         return self.res.headers["username"], self.res.headers["location"]
