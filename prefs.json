@@ -9,6 +9,6 @@
         
     },
     
-    "method" : "phone" //or "email" for email
+    "method" : "phone"
     
 }
